@@ -10,16 +10,17 @@ package p3;
  * @author reroes
  */
 public class Correo {
-    private DominioGmail dominioGmail;
+    private DominioCorreo dominio;
     private String correo;
     private String username;
-    
-    public void establecerDominio(DominioGmail g){
-        dominioGmail = g;
-    }
-    
+    private String tipoCorreo;
+            
     public void establecerUserName(String u){
         username = u;
+    }
+    
+    public void establecerDominio(DominioCorreo d){
+        dominio = d;
     }
     
     public void establecerCorreo(){
@@ -27,8 +28,12 @@ public class Correo {
                 obtenerDominio().obtenerDominio());
     }
     
-    public DominioGmail obtenerDominio(){
-        return dominioGmail;
+    public void establecerTipoCorreo(String c){
+        tipoCorreo = c;
+    }
+    
+    public DominioCorreo obtenerDominio(){
+        return dominio;
     }
     
     public String obtenerUserName(){
@@ -37,6 +42,16 @@ public class Correo {
     
     public String obtenerCorreo(){
         return correo;
+    }
+    
+    public String obtenerTipoCorreo(){
+        return tipoCorreo;
+    }
+    
+    @Override
+    public String toString(){
+        String reporte = String.format("Url: %s\n", obtenerCorreo());
+        return reporte;
     }
     
 }
